@@ -1,0 +1,53 @@
+<ion-view title="Create Budget">
+
+  <ion-content style="padding:5px;">
+          <div style="margin-top:20px"></div>
+
+          <form ng-submit="onAmountSubmit()">
+              <label class="item item-input item-floating-label">
+                  <span class="input-label">Enter Budget Amount</span>
+                  <input type="number" placeholder="Enter Budget Amount" ng-model="budget.totalAmount" ng-focus="" ng-blur="onTotalAmountEntered()">
+              </label>
+              <input type="submit" value="Lets Start" class="button button-block button-dark">
+
+          </form>
+
+          <button class="button button-full button-balanced button-outline">
+            Amount Remaining : {{remainingAmount}}
+          </button>
+
+
+          <div class="row">
+            <div class="col col-67">Category</div>
+            <div class="col col col-20">Amount</div>
+          </div>
+            <div id="categoryRow">
+                  <div class="row">
+                      <div class="col col-67">
+                            <label class="item item-input">
+                              <input type="text" id="categoryInput"  placeholder="Category" ng-model="budget.categories[0].title">
+                            </label>
+                      </div>
+
+                      <div class="col col col-20">
+                            <label class="item item-input">
+                              <input type="number" ng-focus="onFirstAmountEntered()" ng-blur="" placeholder="$" ng-model="budget.categories[0].amount">
+                            </label>
+                      </div>
+                      
+                      <a class="button button-icon icon ion-plus-circled" id="addRowButton" ng-click="click()"></a>
+                      <!-- <div class="col" add-div-directive></div>  -->
+                  </div>
+            </div>
+            
+
+            <!-- <a class="button icon-left ion-plus-round button-clear button-assertive"></a> -->
+            <!-- <div class="row">
+              <div add-div-directive></div>
+            </div> -->
+            
+
+          
+      
+  </ion-content>
+</ion-view>
