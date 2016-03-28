@@ -39,7 +39,10 @@
                       <a class="button button-icon icon ion-plus-circled" id="addRowButton" ng-click="click()"></a>
                   </div>
             </div> -->
-            <div add-div-directive></div>
+            <div id="rootDiv">
+              <add-div-directive category-ng-model="{{newCategoryNgModel}}" amount-ng-model="{{newAmountNgModel}}"></add-div-directive>
+            </div>
+            
     
             <button class="button button-block button-balanced">Submit Budget</button>
             

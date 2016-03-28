@@ -1,14 +1,19 @@
 var app = angular.module('starter.controllers', []);
 
 app.controller('AppCtrl', function($scope, $compile, $http, $templateCache) {
-
+    $scope.clicked = 0;
+    // var clicked = 0;
     $scope.budget = {
-      	"totalAmount" : 0,
-      	"categories" : [
-      		{"title" : null, "amount" : 0}
-      	]
+        "totalAmount" : 0,
+        "categories" : [
+          {"title" : null, "amount" : 0}
+        ]
       };
 
+    $scope.newCategoryNgModel = $scope.budget.categories[$scope.clicked].title;
+    $scope.newAmountNgModel = $scope.budget.categories[$scope.clicked].amount;
+
+    
     $scope.onTotalAmountEntered = function(){
         	$scope.remainingAmount = $scope.budget.totalAmount;
       };
@@ -21,41 +26,24 @@ app.controller('AppCtrl', function($scope, $compile, $http, $templateCache) {
         var id = obj.target.attributes;
         console.log(id);
     }
+    
 
-      var newDiv;
-      $scope.clicked = 0;
       $scope.click = function() {
-          $scope.clicked ++;
+          $scope.clicked++;
+          var x = $scope.clicked;
+          console.log("val =>" + x) ;
 
-          var rootDiv =  angular.element(document.querySelector('#categoryRow'));
+          var rootDiv =  angular.element(document.querySelector('#rootDiv'));
+          var newDiv = angular.element(document.querySelector('add-div-directive')).clone();
 
-          // var x = null;
-          // $http.get('templates/newrow.html').then(function(response){
-          //       x = response.data;
-          //       console.log(x); 
-          // });
+          // $scope.newCategoryNgModel = $scope.budget.categories[x].title;
+          // $scope.newAmountNgModel = $scope.budget.categories[x].amount;
 
+          // newDiv.attr('category-ng-model',$scope.newCategoryNgModel);
+          // newDiv.attr('amount-ng-model',$scope.newAmountNgModel);
 
-          var newDiv = rootDiv.clone();
-
-          var newCategoryNgModel = 'budget.categories['+ $scope.clicked +'].title';
-          var newAmountNgModel = 'budget.categories['+ $scope.clicked +'].amount';
-
-          var newCategoryInput = newDiv.children().children().children().children("input#categoryInput");
-          console.log("categoryInput -> " + newCategoryInput);
-
-          var newAmountInput = newDiv.children().children().children().children("input#amountInput");
-          console.log("amountInput -> " + newAmountInput);
-
-          newCategoryInput.attr('ng-model', newCategoryNgModel);
-          newAmountInput.attr('ng-model', newAmountNgModel);
-          
-
-          rootDiv.append($compile(newDiv)($scope));
-
-          console.log($scope.budget);
-          // angular.element(document.('#categoryRow')).append($compile(angular.element(document.querySelector('#categoryRow') ).clone()) ($scope));
-      }
+           rootDiv.append($compile(newDiv)($scope));
+      };
 
 });
 
@@ -64,59 +52,27 @@ app.controller('AppCtrl', function($scope, $compile, $http, $templateCache) {
 
 app.directive('addDivDirective', function() {
       return {
-        restrict: 'A',
-        scope: true,
-        template: '<div id="categoryRow">'+
-                  '<div class="row">'+
-                     '<div class="col col-67">'+
-                            '<label class="item item-input">'+
-                              '<input type="text" id="categoryInput" ng-focus="showAttr($event)"  placeholder="Category" ng-model="setNgModel()" >'+
-                            '</label>'+
-                      '</div>'+
-
-                      '<div class="col col-20">'+
-                            '<label class="item item-input">'+
-                              '<input type="text" id="amountInput" ng-focus="showAttr($event)"  placeholder="Amount" ng-model="budget.categories[clicked].amount" >'+
-                            '</label>'+
-                      '</div>'+
-                      
-                      '<a class="button button-icon icon ion-plus-circled" id="addRowButton" ng-click="click()"></a>'+
-                  '</div>'+
-            '</div>',
-
-          controller: function($scope, element, $compile) {
-              $scope.clicked = 0;
-              $scope.budget = {
-                "totalAmount" : 0,
-                "categories" : [
-                  {"title" : null, "amount" : 0}
-                  ]
-              };
-
-              $scope.showAttr = function(obj) {
-                  var id = obj.target.attributes;
-                  console.log(id);
-              }
-
-              $scope.click = function() {
-                  $scope.clicked ++;
-                  console.log("val =>" + $scope.clicked) ;
-                  var rootDiv =  angular.element(document.querySelector('#categoryRow'));
-                   var newDiv = rootDiv.clone();
-                   
-                   rootDiv.append($compile(newDiv)($scope));
-              };
-
-              $scope.setNgModel = function(){
-                $scope.clicked ++;
-                  return "a";
-              }
-
-              
+        restrict: 'E',
+        scope: {
+            categoryNgModel :'@',
+            amountNgModel :'@'
         },
-
+        template: '<div id="categoryRow" ng-controller="AppCtrl">\
+                  <div class="row">\
+                     <div class="col col-67">\
+                            <label class="item item-input">\
+                              <input type="text" id="categoryInput" ng-focus="showAttr($event)"  placeholder="Category" ng-model = "categoryNgModel">\
+                            </label>\
+                      </div>\
+                      <div class="col col-20">\
+                            <label class="item item-input">\
+                              <input type="number" id="amountInput" ng-focus="showAttr($event)" ng-blur="onFirstAmountEntered()"  placeholder="Amount" ng-model = "amountNgModel" >\
+                            </label>\
+                      </div>\
+                      <a class="button button-icon icon ion-plus-circled" id="addRowButton" ng-click="click()"></a>\
+                  </div>\
+            </div>',
       }
-
 });
 
 
