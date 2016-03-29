@@ -1,6 +1,6 @@
 var app = angular.module('starter.controllers', []);
 
-app.controller('AppCtrl', function($scope, $compile, $http, $templateCache) {
+app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
     $scope.clicked = 0;
     // var clicked = 0;
     $scope.budget = {
@@ -57,7 +57,7 @@ app.directive('addDivDirective', function() {
             categoryNgModel :'@',
             amountNgModel :'@'
         },
-        template: '<div id="categoryRow" ng-controller="AppCtrl">\
+        template: '<div id="categoryRow" ng-controller="BudgetCtrl">\
                   <div class="row">\
                      <div class="col col-67">\
                             <label class="item item-input">\

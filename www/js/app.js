@@ -32,7 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('budget', {
       url: '/budget',
       templateUrl: 'templates/budget.html',
-      controller: 'AppCtrl'
+      controller: 'BudgetCtrl'
     })
 
   
