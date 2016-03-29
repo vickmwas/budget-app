@@ -20,7 +20,7 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
       };
 
     $scope.onFirstAmountEntered = function(){
-        $scope.remainingAmount = $scope.budget.totalAmount - $scope.budget.categories[0].amount;
+        return $scope.budget.totalAmount - $scope.budget.categories[0].amount;
     }
 
     $scope.showAttr = function(obj) {
@@ -42,22 +42,23 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
           var newCategoryNgModel = $scope.budget.categories[x].title;
           var newAmountNgModel = $scope.budget.categories[x].amount;
 
-          // var newCategoryInput = newDiv.children().children().children().children().children()[0];
-          console.log(newDiv.children().children().children().children().children()[0].attr('ng-model'));
-
-          // newCategoryInput.attr('ng-model', newCategoryNgModel);
+          var newCategoryInput = angular.element(newDiv.children().children().children().children().children()[0]);
+          newCategoryInput.removeAttr('ng-model').attr('ng-model', newCategoryNgModel);
 
           var newAmountInput = newDiv.children().children().children().children().children()[1];
-          // newAmountInput.attr('ng-model', newAmountNgModel);
-
-          // $scope.newCategoryNgModel = $scope.budget.categories[x].title;
-          // $scope.newAmountNgModel = $scope.budget.categories[x].amount;
-
-          // newDiv.attr('category-ng-model',$scope.newCategoryNgModel);
-          // newDiv.attr('amount-ng-model',$scope.newAmountNgModel);
+          angular.element(newAmountInput).removeAttr('ng-model').attr('ng-model', newAmountNgModel);
 
            rootDiv.append($compile(newDiv)($scope));
-      };
+      }
+
+      $scope.onBudgetSubmit = function(){
+
+          var rootDiv =  angular.element(document.querySelector('#rootDiv'));
+
+          // for (var i = 0; i < $scope.clicked; i++) {
+               
+          // };
+      }
 
 });
 
