@@ -6,6 +6,7 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
     $scope.budget = {
         "totalAmount" : 0,
         "categories" : [
+          {"title" : null, "amount" : 0},
           {"title" : null, "amount" : 0}
         ]
       };
@@ -31,10 +32,23 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
       $scope.click = function() {
           $scope.clicked++;
           var x = $scope.clicked;
+
           console.log("val =>" + x) ;
 
           var rootDiv =  angular.element(document.querySelector('#rootDiv'));
+
           var newDiv = angular.element(document.querySelector('add-div-directive')).clone();
+
+          var newCategoryNgModel = $scope.budget.categories[x].title;
+          var newAmountNgModel = $scope.budget.categories[x].amount;
+
+          // var newCategoryInput = newDiv.children().children().children().children().children()[0];
+          console.log(newDiv.children().children().children().children().children()[0].attr('ng-model'));
+
+          // newCategoryInput.attr('ng-model', newCategoryNgModel);
+
+          var newAmountInput = newDiv.children().children().children().children().children()[1];
+          // newAmountInput.attr('ng-model', newAmountNgModel);
 
           // $scope.newCategoryNgModel = $scope.budget.categories[x].title;
           // $scope.newAmountNgModel = $scope.budget.categories[x].amount;
@@ -54,19 +68,18 @@ app.directive('addDivDirective', function() {
       return {
         restrict: 'E',
         scope: {
-            categoryNgModel :'@',
-            amountNgModel :'@'
+  
         },
         template: '<div id="categoryRow" ng-controller="BudgetCtrl">\
                   <div class="row">\
                      <div class="col col-67">\
                             <label class="item item-input">\
-                              <input type="text" id="categoryInput" ng-focus="showAttr($event)"  placeholder="Category" ng-model = "categoryNgModel">\
+                              <input type="text" id="categoryInput" ng-focus="showAttr($event)"  placeholder="Category" ng-model = budget.categories[0].title>\
                             </label>\
                       </div>\
                       <div class="col col-20">\
                             <label class="item item-input">\
-                              <input type="number" id="amountInput" ng-focus="showAttr($event)" ng-blur="onFirstAmountEntered()"  placeholder="Amount" ng-model = "amountNgModel" >\
+                              <input type="number" id="amountInput" ng-focus="showAttr($event)" ng-blur="onFirstAmountEntered()"  placeholder="Amount" ng-model = budget.categories[0].amount >\
                             </label>\
                       </div>\
                       <a class="button button-icon icon ion-plus-circled" id="addRowButton" ng-click="click()"></a>\
