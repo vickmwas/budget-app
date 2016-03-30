@@ -22,38 +22,16 @@
             <div class="col col col-20"><h6>Amount</h6></div>
           </div>
 
-           <!--  <div id="categoryRow">
-                  <div class="row">
-                      <div class="col col-67">
-                            <label class="item item-input">
-                              <input type="text" id="categoryInput" ng-focus="showAttr($event)"  placeholder="Category" ng-model="budget.categories[0].title" >
-                            </label>
-                      </div>
 
-                      <div class="col col col-20">
-                            <label class="item item-input">
-                              <input type="number" id="amountInput" ng-focus="showAttr($event)" ng-blur="onFirstAmountEntered()" placeholder="$" ng-model="budget.categories[0].amount">
-                            </label>
-                      </div>
-                      
-                      <a class="button button-icon icon ion-plus-circled" id="addRowButton" ng-click="click()"></a>
-                  </div>
-            </div> -->
-            <div id="rootDiv">
-              <add-div-directive></add-div-directive>
-            </div>
+          <div id="rootDiv">
+                <add-div-directive></add-div-directive>
+          </div>
             
     
-            <button class="button button-block button-balanced" ng-click="onBudgetSubmit()">Submit Budget</button>
+          <button class="button button-block button-balanced" ng-click="onBudgetSubmit()">Submit Budget</button>
             
 
-            <!-- <a class="button icon-left ion-plus-round button-clear button-assertive"></a> -->
-            <!-- <div class="row">
-              <div add-div-directive></div>
-            </div> -->
-            
-
-          
+           
       
   </ion-content>
 </ion-view>

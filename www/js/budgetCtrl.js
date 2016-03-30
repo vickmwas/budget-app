@@ -1,4 +1,4 @@
-var app = angular.module('starter.controllers', []);
+var app = angular.module('budget.controller', []);
 
 app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
     $scope.clicked = 0;
@@ -6,6 +6,24 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
     $scope.budget = {
         "totalAmount" : 0,
         "categories" : [
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
+          {"title" : null, "amount" : 0},
           {"title" : null, "amount" : 0},
           {"title" : null, "amount" : 0}
         ]
@@ -31,22 +49,21 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
 
       $scope.click = function() {
           $scope.clicked++;
-          var x = $scope.clicked;
 
-          console.log("val =>" + x) ;
+          console.log("val =>" + $scope.clicked) ;
 
           var rootDiv =  angular.element(document.querySelector('#rootDiv'));
 
           var newDiv = angular.element(document.querySelector('add-div-directive')).clone();
 
-          var newCategoryNgModel = $scope.budget.categories[x].title;
-          var newAmountNgModel = $scope.budget.categories[x].amount;
+          var newCategoryNgModel = $scope.budget.categories[$scope.clicked].title;
+          var newAmountNgModel = $scope.budget.categories[$scope.clicked].amount;
 
           var newCategoryInput = angular.element(newDiv.children().children().children().children().children()[0]);
           newCategoryInput.removeAttr('ng-model').attr('ng-model', newCategoryNgModel);
 
-          var newAmountInput = newDiv.children().children().children().children().children()[1];
-          angular.element(newAmountInput).removeAttr('ng-model').attr('ng-model', newAmountNgModel);
+          var newAmountInput = angular.element( newDiv.children().children().children().children().children()[1] );
+          newAmountInput.removeAttr('ng-model').attr('ng-model', newAmountNgModel);
 
            rootDiv.append($compile(newDiv)($scope));
       }
@@ -55,9 +72,10 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
 
           var rootDiv =  angular.element(document.querySelector('#rootDiv'));
 
-          // for (var i = 0; i < $scope.clicked; i++) {
-               
-          // };
+          var amountArray = rootDiv.children().children().children().children().children().children();
+
+          console.log(amountArray);
+          console.log("Clicked = "+ $scope.clicked);
       }
 
 });
@@ -71,7 +89,7 @@ app.directive('addDivDirective', function() {
         scope: {
   
         },
-        template: '<div id="categoryRow" ng-controller="BudgetCtrl">\
+        template: '<div id="categoryRow" ng-controller="BudgetCtrl" ng-init = "clicked = 0">\
                   <div class="row">\
                      <div class="col col-67">\
                             <label class="item item-input">\
