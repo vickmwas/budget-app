@@ -1,0 +1,57 @@
+[
+	{
+		"budgetID" : 0,
+		"budgetTitle":"This week's Pocket Money Budget",
+		"budgetAmount":1500,		
+		"budgetStartDate": "27-03-2016",
+		"budgetEndDate" : "2-04-2016",
+		"Items" : [
+			{
+				"Title" : "Fare",
+				"Amount": 600
+			},
+			{
+				"Title" : "Food",
+				"Amount": 600
+			},
+			{
+				"Title" : "Tithe",
+				"Amount": 150
+			},
+			{
+				"Title" : "Remainder",
+				"Amount": 150
+			}
+		]
+	},
+	{
+		"budgetID" : 1,
+		"budgetTitle" : "My 10k fortnight's budget",
+		"budgetAmount":10000,
+		"budgetStartDate": "1-03-2016",
+		"budgetEndDate" : "31-03-2016",
+		"Items" : [
+			{
+				"Title" : "Electricity Bill",
+				"Amount": 1500
+			},
+			{
+				"Title" : "Water Bill",
+				"Amount": 100
+			},
+			{
+				"Title" : "FoodStuffs Shopping",
+				"Amount": 2000
+			},
+			{
+				"Title" : "Children's Text Books",
+				"Amount": 5000
+			},
+			{
+				"Title" : "Savings",
+				"Amount": 1400
+			}
+
+		]
+	}
+]

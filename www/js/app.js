@@ -35,6 +35,12 @@ angular.module('starter', ['ionic', 'budget.controller','transactions'])
       controller: 'BudgetCtrl'
     })
 
+    .state('budgetList', {
+      url: '/budget_list',
+      templateUrl: 'templates/budgetsList.html',
+      controller: 'BudgetListCtrl'
+    })
+
     .state('transaction', {
       url : '/transaction',
       templateUrl: 'templates/dailyTransactions.html',

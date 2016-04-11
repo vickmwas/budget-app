@@ -1,0 +1,51 @@
+[
+	{
+		"budgetID" : 0,
+		"Items" : [
+			{
+				"Title" : "Fare",
+				"Amount": 600
+			},
+			{
+				"Title" : "Food",
+				"Amount": 600
+			},
+			{
+				"Title" : "Tithe",
+				"Amount": 150
+			},
+			{
+				"Title" : "Remainder",
+				"Amount": 150
+			}
+		]
+	},
+	{
+		"budgetID" : 0,
+		"Items" : [
+			{
+				"Title" : "Electricity Bill",
+				"Amount": 1500
+			},
+			{
+				"Title" : "Water Bill",
+				"Amount": 100
+			},
+			{
+				"Title" : "FoodStuffs Shopping",
+				"Amount": 2000
+			},
+			{
+				"Title" : "Children's Text Books",
+				"Amount": 5000
+			},
+			{
+				"Title" : "Savings",
+				"Amount": 1400
+			}
+
+		]
+	}
+
+
+]

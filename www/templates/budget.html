@@ -1,15 +1,38 @@
-<ion-view title="Create Budget">
+<ion-view title="Amount Left : {{onFirstAmountEntered()}}" ng-app="budget.controller" ng-controller="BudgetCtrl">
 
-  <ion-content style="padding:5px;">
+  <ion-content style="padding:5px;" >
           <div style="margin-top:20px"></div>
+
+
+          <label class="item item-input item-floating-label">
+                  <span class="input-label">Enter Budget Name</span>
+                  <input type="text" placeholder="Enter Budget Name">
+              </label>
+
+
+        <!--To adn From date picker-->
+          <div class="row">
+              <div class="col col-50">
+                 <label class="item item-input">
+                    <input type="date" placeholder="From Date">
+                  </label>
+              </div>
+             <div class="col col-50">
+                <label class="item item-input">
+                 <input type="date" placeholder="To date">
+                </label>
+              </div>
+            </div>
+
+
 
           <form ng-submit="onAmountSubmit()">
               <label class="item item-input item-floating-label">
                   <span class="input-label"><h6>Enter Budget Amount</h6></span>
                   <input type="number" placeholder="Enter Budget Amount" ng-model="budget.totalAmount" ng-focus="" ng-blur="onTotalAmountEntered()">
               </label>
-              <input type="submit" value="Lets Start" class="button button-block button-dark">
-
+              <!-- <input type="submit" value="Lets Start" class="button button-block button-dark"> -->
+  
           </form>
 
           <button class="button button-full button-balanced button-outline">
