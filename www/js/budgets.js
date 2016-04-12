@@ -34,44 +34,51 @@ app.controller('BudgetListCtrl', function($scope, BudgetListFactory){
 
 app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
     $scope.clicked = 0;
+    $scope.amountEntered = 0;
+    var entered = 0;
     // var x = $scope.clicked;
     $scope.budget = {
         "totalAmount" : 0,
         "categories" : [
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""},
-          {"title" : "", "amount" : ""}
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0},
+          {"title" : "", "amount" : 0}
         ]
       };
 
-    
-    $scope.onTotalAmountEntered = function(){
-        	$scope.remainingAmount = $scope.budget.totalAmount;
-      };
 
     $scope.onFirstAmountEntered = function(){
-        for(var x = 0; x < $scope.clicked; x++){
-            $scope.budget.totalAmount += $scope.budget.categories[x].amount;
-        }
-        return $scope.budget.totalAmount;
+      //This is for the Watcher function, which runs like a million times 
+      $scope.amountEntered = 0; 
+
+        //We increment the $scope.clicked by 1, because, well, it starts from 0
+        //This loop finds the sum of all the budget amounts entered, in order to find the remaining amount
+        //Remaining amount = Total amount - Sum of Entered Amounts
+        for(var x = 0; x < $scope.clicked+1; x++){
+            $scope.amountEntered += $scope.budget.categories[x].amount;
+        };
+
+        return $scope.budget.totalAmount - $scope.amountEntered;
     }
+
+    
 
     $scope.showAttr = function(obj) {
         var id = obj.target.attributes;
@@ -106,18 +113,12 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache) {
     }
 
       $scope.onBudgetSubmit = function(){
-
-          var rootDiv =  angular.element(document.querySelector('#rootDiv'));
-
-          // var amountArray = rootDiv.children().children().children().children().children().children();
-          var amountArray = rootDiv;
-          
-          console.log("length is " + amountArray);
-          for (var i = 0; i < amountArray.length; i++) {
-              console.log("Input => " + angular.element(amountArray[i]).val());
-          };
-          // console.log(amountArray);
-  
+        console.log("This is the amountEntered");
+        var loops = $scope.clicked + 1;
+        console.log(loops+" loops");
+        for(var y = 0; y < loops; y++){
+            console.log($scope.budget.categories[y].title + " => " + $scope.budget.categories[y].amount);
+        }
       }
 
 
