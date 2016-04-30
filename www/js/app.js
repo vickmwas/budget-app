@@ -4,10 +4,14 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'budget.controller','transactions'])
+var app = angular.module('starter', ['ionic','ngCordova','chartjs-directive']);
 
-.run(function($ionicPlatform) {
+app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+
+    // $cordovaPlugin.someFunction().then(success, error);
+
+    
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -20,9 +24,9 @@ angular.module('starter', ['ionic', 'budget.controller','transactions'])
       StatusBar.styleDefault();
     }
   });
-})
+});
 
-.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
       .state('app', {
         url: '/',
@@ -46,6 +50,29 @@ angular.module('starter', ['ionic', 'budget.controller','transactions'])
       templateUrl: 'templates/dailyTransactions.html',
       controller:'transactionsCtrl'
     })
+
+    .state('analysis', {
+      url : '/analysis'
+    })
+
+    .state('signup', {
+      url : '/signup',
+      templateUrl:'templates/signup.html',
+      controller:'SignupCtrl'
+    })
+
+    .state('login', {
+      url : '/login',
+      templateUrl:'templates/login.html',
+      controller:'LoginCtrl'
+    })
+
+    .state('todo', {
+      url : '/todo',
+      templateUrl:'templates/todo.html',
+    })
+
+
 
   
   // if none of the above states are matched, use this as the fallback

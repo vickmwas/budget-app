@@ -1,12 +1,44 @@
-<ion-view title="New Transaction">
+<ion-view title="Today's Spendings">
 
   <ion-content style="padding:5px;">
 
 	<p>Today's date : {{FromDate}}</p>
+	
+	<!-- <chart value="myChart"></chart> -->
 
-	<div id="canvas-holder">
-		<canvas id="chart-area" width="500" height="500"/>
+	<div class="card" >
+			<div class="item item-divider">
+				What's your current budget?
+			</div>
+			
+		  <label class="item item-input item-stacked-label item-select" style="height:50px">
+		    <!-- <div class="input-label"></div> -->
+		    <select>
+		      <option ng-repeat="budget in budgetList">{{budget.budgetTitle}}</option>
+		    </select>
+		  </label>
 	</div>
+	
+	
+	<div class="card">
+		<div class="item item-divider row">
+            <div class="col col-50"><h3>Category</h3></div>
+            <div class="col col col-33"><h3>Amount</h3></div>
+         </div>
+	</div>
+     
+     <div id="rootDiv" class="">
+            <add-transactions-div></add-transactions-div>
+      </div>
+	
+	<button class="button button-block button-balanced" ng-click="">Submit Transactions</button>
+
+
+	
+		
+
+          
+	
 
 </ion-content>
 </ion-view>

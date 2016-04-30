@@ -23,7 +23,9 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ChartJS/Chart.min.js"></script>
-    <!-- Ionic -Material Js --> 
+
+    <script src="lib/chartjs-directive.js"></script>
+    <!-- Ionic -Material Js -->
      <!-- // <script src="lib/ionic-material/ionic.material.js.map"></script>   -->
        <!-- // <script src="lib/ionic-material/ionic.material.js"></script>  -->
 
@@ -31,6 +33,7 @@
     <!-- // <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
     <!-- // <script src="lib/materialize/js/materialize.min.js"></script>  -->
 
+    <script src="lib/ng-cordova/dist/ng-cordova.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -38,12 +41,13 @@
     <script src="js/app.js"></script>
     <script src="js/budgets.js"></script>
     <script src="js/transactions.js"></script>
+    <script src="js/signup.js"></script>
   </head>
 
-  <body ng-app="starter">
+  <body ng-app="starter" style="background-image:url(img/finance.jpg);">
 
 
-    <ion-nav-bar class="bar-balanced">
+    <ion-nav-bar class="bar-balanced" style="">
         <ion-nav-back-button class="button-clear">
             <i class="ion-android-arrow-back"></i>Back
          </ion-nav-back-button>
@@ -52,41 +56,52 @@
     <ion-nav-view></ion-nav-view>
 
     <ion-view title="Budgeter App">
-   
-        <div class="list card">
+        <ion-content>
+            <div class="list card" style="margin-top:1px; ">
 
-            <div class="item item-image">
-              <img src="img/finance.jpg">
+                <div class="item item-image">
+                  <img src="img/finance.jpg">
+                </div>
+
+                <a href="#/budget_list" class="item item-balanced item-icon-left">
+                  <i class="icon ion-compose"></i>
+                   New Budget
+               </a>
+
+
+                 <a href="#/transaction" class="item item-balanced item-icon-left">
+                   <i class="icon ion-cash"></i>
+                   Daily Spendings
+                </a>
+
+                 <a href="#" class="item item-balanced item-icon-left">
+                   <i class="icon ion-ios-pie"></i>
+                    Analysis
+                </a>
+
+                <a href="#" class="item item-balanced item-icon-left">
+                   <i class="icon ion-ios-bell"></i>
+                    Reminders
+                </a>
+
+                <a href="#/signup" class="item item-balanced item-icon-left">
+                   <i class="icon ion-android-upload"></i>
+                    Sign in / Sign up
+                </a>
+
             </div>
 
-              <a href="#/budget_list" class="item item-balanced item-icon-left">
-                <i class="icon ion-compose"></i>
-                 New Budget
-             </a>                                       
-             
-            
-               <a href="#/transaction" class="item item-balanced item-icon-left">
-                 <i class="icon ion-cash"></i>
-                 Daily Spendings
-              </a>                     
-            
-               <a href="#" class="item item-balanced item-icon-left">
-                 <i class="icon ion-ios-pie"></i>
-                  Analysis
-              </a>   
+            <div class="card">
+                  <a class="item item-balanced item-icon-left item-text-wrap" href="#/todo">
+                    <i class="icon ion-checkmark"></i>
+                    Todo
+                  </a>
+            </div>
 
-              <a href="#" class="item item-balanced item-icon-left">
-                 <i class="icon ion-ios-bell"></i>
-                  Reminders
-              </a>   
 
-              <a href="#" class="item item-balanced item-icon-left">
-                 <i class="icon ion-android-upload"></i>
-                  Sign in / Sign up
-              </a>
+        </ion-content>
 
-          </div>
      </ion-view>
-     
+
   </body>
 </html>
