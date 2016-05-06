@@ -12,19 +12,19 @@
     <!-- <link href="lib/ionic-material/ionic.material.css" rel="stylesheet"> -->
 
 
+    <link href="lib/Angular-Chart-JS/angular-chart.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!-- // <script src="lib/jquery.min.js"></script> -->
-
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/ChartJS/Chart.min.js"></script>
 
-    <script src="lib/chartjs-directive.js"></script>
+    <script src="lib/ChartJS/Chart.min.js"></script>
+    <script src="lib/Angular-Chart-JS/angular-chart.min.js"></script>
+
     <!-- Ionic -Material Js -->
      <!-- // <script src="lib/ionic-material/ionic.material.js.map"></script>   -->
        <!-- // <script src="lib/ionic-material/ionic.material.js"></script>  -->
@@ -42,6 +42,7 @@
     <script src="js/budgets.js"></script>
     <script src="js/transactions.js"></script>
     <script src="js/signup.js"></script>
+    <script src="js/analysis.js"></script>
   </head>
 
   <body ng-app="starter" style="background-image:url(img/finance.jpg);">
@@ -74,7 +75,7 @@
                    Daily Spendings
                 </a>
 
-                 <a href="#" class="item item-balanced item-icon-left">
+                 <a href="#/analysis" class="item item-balanced item-icon-left">
                    <i class="icon ion-ios-pie"></i>
                     Analysis
                 </a>
@@ -91,12 +92,7 @@
 
             </div>
 
-            <div class="card">
-                  <a class="item item-balanced item-icon-left item-text-wrap" href="#/todo">
-                    <i class="icon ion-checkmark"></i>
-                    Todo
-                  </a>
-            </div>
+
 
 
         </ion-content>

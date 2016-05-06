@@ -1,0 +1,24 @@
+
+<ion-view title="{{pageTitle}}">
+
+  <ion-content style="padding:20px;">
+
+  		<div id="loginDiv" class="list" ng-controller="LoginCtrl">
+			<label class="item item-input item-stacked-label">
+		    <span class="input-label">Email</span>
+		    <input type="email" placeholder="me@email.com" ng-model="email" required>
+		  </label>
+
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Password</span>
+		    <input type="password" ng-model="password" placeholder="********" required>
+		  </label>
+
+		   <input type="submit" value="Log In" style="width:100%" class="button button-full button-positive"/>
+		</div>
+
+
+
+
+  </ion-content>
+ </ion-view>

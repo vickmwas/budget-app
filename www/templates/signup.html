@@ -1,0 +1,39 @@
+<ion-nav-view></ion-nav-view>
+
+<ion-view title="{{pageTitle}}">
+
+  <ion-content style="padding:20px;">
+
+		<div class="list" id="signupDiv" >
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Name</span>
+		    <input type="text" placeholder="Me" ng-model="userDetails.username">
+		  </label>
+
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Email</span>
+		    <input type="text" placeholder="me@email.com" ng-model="userDetails.email">
+		  </label>
+
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Password</span>
+		    <input type="password" placeholder="********" ng-model="userDetails.password">
+		  </label>
+
+
+
+		  <button class="button button-full button-positive" ng-click="onSignUpButtonClicked()">Sign Up</button>
+
+		  <p style="margin-top:30px">Have an Account Already?</p>
+		  <a class="button button-block button-outline button-positive" href="#/login" >
+		  	Log in
+		  </a>
+
+      User : {{userName}}<br>
+      Email : {{email}}<br>
+      Password : {{password}}<br>
+		</div>
+
+
+  </ion-content>
+ </ion-view>

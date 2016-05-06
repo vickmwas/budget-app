@@ -1,4 +1,4 @@
-<ion-view title="Amount Left : {{onFirstAmountEntered()}} / {{budget.totalAmount}}" ng-app="budget.controller" ng-controller="BudgetCtrl">
+<ion-view title="Amount Left : {{onFirstAmountEntered()}} / {{budget.budgetAmount}}" ng-app="budget.controller" ng-controller="BudgetCtrl">
 
   <ion-content style="padding:5px;" >
           <div style="margin-top:20px"></div>
@@ -6,20 +6,28 @@
 
           <label class="item item-input item-floating-label">
                   <span class="input-label">Enter Budget Name</span>
-                  <input type="text" placeholder="Enter Budget Name">
+                  <input type="text" placeholder="Enter Budget Name" ng-model="budget.budgetTitle" required>
               </label>
 
 
-        <!--To adn From date picker-->
+          <div class="row">
+              <div class="col col-50" style="padding-left: 10%">
+                 From Date:
+              </div>
+              <div class="col col-50" style="padding-left: 10%">
+                  To Date:
+              </div>
+          </div>
+
           <div class="row">
               <div class="col col-50">
                  <label class="item item-input">
-                    <input type="date" placeholder="From Date">
+                    <input type="date" placeholder="From Date" ng-model="budget.budgetStartDate" required>
                   </label>
               </div>
              <div class="col col-50">
                 <label class="item item-input">
-                 <input type="date" placeholder="To date">
+                 <input type="date" placeholder="To date" ng-model="budget.budgetEndDate">
                 </label>
               </div>
             </div>
@@ -29,10 +37,10 @@
           <form ng-submit="onAmountSubmit()">
               <label class="item item-input item-floating-label">
                   <span class="input-label"><h6>Enter Budget Amount</h6></span>
-                  <input type="number" placeholder="Enter Budget Amount" ng-model="budget.totalAmount" ng-focus="">
+                  <input type="number" placeholder="Enter Budget Amount" ng-model="budget.budgetAmount" ng-focus="">
               </label>
               <!-- <input type="submit" value="Lets Start" class="button button-block button-dark"> -->
-  
+
           </form>
 
           <button class="button button-full button-balanced button-outline">
@@ -47,14 +55,13 @@
 
 
           <div id="rootDiv">
-                <add-div-directive></add-div-directive>
+              <add-div-directive></add-div-directive>
           </div>
-            
-    
-          <button class="button button-block button-balanced" ng-click="onBudgetSubmit()">Submit Budget</button>
-            
 
-           
-      
+
+          <button class="button button-block button-balanced" ng-click="onBudgetSubmit()">Submit Budget</button>
+
+
+
   </ion-content>
 </ion-view>

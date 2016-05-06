@@ -2,25 +2,25 @@
 	{
 		"budgetID" : 0,
 		"budgetTitle":"This week's Pocket Money Budget",
-		"budgetAmount":1500,		
+		"budgetAmount":1500,
 		"budgetStartDate": "27-03-2016",
 		"budgetEndDate" : "2-04-2016",
 		"Items" : [
 			{
-				"Title" : "Fare",
-				"Amount": 600
+				"title" : "Fare",
+				"amount": 600
 			},
 			{
-				"Title" : "Food",
-				"Amount": 600
+				"title" : "Food",
+				"amount": 600
 			},
 			{
-				"Title" : "Tithe",
-				"Amount": 150
+				"title" : "Tithe",
+				"amount": 150
 			},
 			{
-				"Title" : "Remainder",
-				"Amount": 150
+				"title" : "Remainder",
+				"amount": 150
 			}
 		]
 	},
@@ -30,26 +30,26 @@
 		"budgetAmount":10000,
 		"budgetStartDate": "1-03-2016",
 		"budgetEndDate" : "31-03-2016",
-		"Items" : [
+		"items" : [
 			{
-				"Title" : "Electricity Bill",
-				"Amount": 1500
+				"title" : "Electricity Bill",
+				"amount": 1500
 			},
 			{
-				"Title" : "Water Bill",
-				"Amount": 100
+				"title" : "Water Bill",
+				"amount": 100
 			},
 			{
-				"Title" : "FoodStuffs Shopping",
-				"Amount": 2000
+				"title" : "FoodStuffs Shopping",
+				"amount": 2000
 			},
 			{
-				"Title" : "Children's Text Books",
-				"Amount": 5000
+				"title" : "Children's Text Books",
+				"amount": 5000
 			},
 			{
-				"Title" : "Savings",
-				"Amount": 1400
+				"title" : "Savings",
+				"amount": 1400
 			}
 
 		]
