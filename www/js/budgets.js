@@ -23,13 +23,12 @@ app.factory('BudgetListFactory',  function($http){
 
 app.controller('BudgetListCtrl', function($scope, BudgetListFactory){
   var getBudgets = BudgetListFactory.getAllBudgets();
-  console.log(getBudgets);
+  // console.log(getBudgets);
   $scope.budgetList = JSON.parse(getBudgets);
+
     if($scope.budgetList != undefined){
       $scope.budgetCount = $scope.budgetList.length;
     }
-
-
 
 });
 
@@ -106,12 +105,7 @@ app.controller('BudgetCtrl', function($scope, $compile, $http, $templateCache, B
     $scope.clicked++;
     console.log("Clicked = ",$scope.clicked);
 
-    var newBudgetObj = {"title" : "","amount" : 0};
-
     var rootDiv =  angular.element(document.querySelector('#rootDiv'));
-
-    var newDiv = angular.element(document.querySelector('add-div-directive')).clone();
-
 
     rootDiv.append($compile('<div id="categoryRow">\
                   <div class="row">\

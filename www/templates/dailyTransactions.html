@@ -1,4 +1,4 @@
-<ion-view title="Today's Spendings">
+<ion-view title="{{pageTitle}}">
 
   <ion-content style="padding:5px;">
 
@@ -8,16 +8,22 @@
 
 	<div class="card" >
 			<div class="item item-divider">
-				What's your current budget?
+				Select your current budget?
 			</div>
 
 		  <label class="item item-input item-stacked-label item-select" style="height:50px">
 		    <!-- <div class="input-label"></div> -->
-		    <select>
-		      <option ng-repeat="budget in budgetList">{{budget.budgetTitle}}</option>
+		    <select ng-model="data.selectedBudget" ng-change="onBudgetSelected()">
+		      <option ng-repeat="budget in budgetList" value="{{budget.budgetTitle}}">{{budget.budgetTitle}}</option>
 		    </select>
 		  </label>
+
+
 	</div>
+
+    <button class="button button-full button-outline button-calm">
+      <b>{{onFirstAmountEntered()}}/{{currentBudget.budgetAmount}}</b> Remaining In Your Budget
+    </button>
 
     <div class="row">
       <div class="col col-50" style="padding-left: 10%">
@@ -32,7 +38,7 @@
             <add-transactions-div></add-transactions-div>
       </div>
 
-	<button class="button button-block button-balanced" ng-click="">Submit Transactions</button>
+	<button class="button button-block button-balanced" ng-click="onTransactionsSubmitted()">Submit Transactions</button>
 
 
 
